@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | TypoTech - Zambian Tech Innovation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #008000;          /* TypoTech Green */
+            --primary-dark: #006400;     /* Darker Green */
+            --primary-light: #a8d5a8;    /* Light Green */
+            --secondary: #f0f0f0;        /* Off-white */
+            --dark: #000000;             /* Black */
+            --light: #ffffff;            /* White */
+            --accent: #10b981;           /* Emerald */
+            --gray-light: #e8f5e8;       /* Very light green */
+            --gray: #4a6b4a;             /* Greenish gray */
+            --gray-dark: #1a2c1a;        /* Dark greenish gray */
+        }
+
+        body {
+            font-family: 'Oswald', sans-serif;
+            color: var(--dark);
+            background-color: var(--primary-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation - Match Homepage */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .tt-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            font-family: Arial, sans-serif;
+        }
+
+        .year-badge {
+            background-color: var(--primary);
+            color: var(--light);
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 5px;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .contact-btn {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 140px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-dark), var(--primary));
+            opacity: 0.1;
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: var(--light);
+            font-family: Arial, sans-serif;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-hero .tagline {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .breadcrumb li {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .breadcrumb li:after {
+            content: '›';
+            position: absolute;
+            right: -15px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.2rem;
+        }
+
+        .breadcrumb li:last-child:after {
+            display: none;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 400;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--light);
+        }
+
+        .breadcrumb .current {
+            color: var(--light);
+            font-weight: 500;
+        }
+
+        /* Services Showcase */
+        .services-showcase {
+            padding: 100px 0;
+            background-color: var(--primary);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            color: var(--light);
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--light);
+        }
+
+        .section-title p {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 25px auto 0;
+            opacity: 0.9;
+        }
+
+        /* Premium Services Grid */
+        .premium-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .premium-service {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 50px 35px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-service:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--light), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+            transform-origin: left;
+        }
+
+        .premium-service:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .premium-service:hover:before {
+            transform: scaleX(1);
+        }
+
+        .service-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--accent);
+            color: var(--light);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .premium-icon {
+            font-size: 4rem;
+            color: var(--light);
+            margin-bottom: 25px;
+            height: 100px;
+            width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.4s;
+        }
+
+        .premium-service:hover .premium-icon {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .premium-service h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+
+        .premium-service .price-tag {
+            font-size: 2.2rem;
+            color: var(--light);
+            font-weight: 700;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .price-tag span {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .premium-service p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .service-features li {
+            margin-bottom: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            padding-left: 30px;
+            font-size: 1rem;
+        }
+
+        .service-features li:before {
+            content: '✓';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-size: 1.1rem;
+        }
+
+        .service-btn {
+            display: inline-block;
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 14px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .service-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+            z-index: -1;
+        }
+
+        .service-btn:hover {
+            background-color: var(--primary-dark);
+            color: var(--light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-btn:hover:before {
+            left: 100%;
+        }
+    /* Pricing Tabs */
+        .pricing-tabs-section {
+            padding: 100px 0;
+            background-color: var(--primary-light);
+        }
+
+        .pricing-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pricing-tab {
+            padding: 12px 35px;
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 5px;
+            font-size: 1.1rem;
+        }
+
+        .pricing-tab:hover {
+            background-color: rgba(0, 128, 0, 0.1);
+        }
+
+        .pricing-tab.active {
+            background-color: var(--primary);
+            color: var(--light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 128, 0, 0.2);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .pricing-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            padding: 45px 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+            transform-origin: left;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card:hover:before {
+            transform: scaleX(1);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.popular:hover {
+            transform: translateY(-15px) scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: var(--light);
+            padding: 8px 25px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 5px 15px rgba(0, 128, 0, 0.3);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--gray);
+        }
+
+        .pricing-features {
+            margin-bottom: 35px;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            margin-bottom: 12px;
+            color: var(--gray);
+            position: relative;
+            padding-left: 30px;
+            font-size: 1rem;
+        }
+
+        .pricing-features li:before {
+            content: '✓';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-size: 1.1rem;
+        }
+
+        .pricing-features li.disabled {
+            opacity: 0.5;
+        }
+
+        .pricing-features li.disabled:before {
+            content: '✗';
+            color: #ff6b6b;
+        }
+
+        .pricing-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 15px 40px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            width: 100%;
+            text-align: center;
+        }
+
+        .pricing-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 100, 0, 0.3);
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 25px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s;
+        }
+
+        .process-step:hover .step-number {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .process-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        .process-step p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background-color: var(--primary-light);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .cta-section p {
+            color: var(--gray-dark);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 45px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-button.primary {
+            background-color: var(--primary);
+            color: var(--light);
+            box-shadow: 0 5px 15px rgba(0, 128, 0, 0.2);
+        }
+
+        .cta-button.primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 100, 0, 0.3);
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .cta-button.secondary:hover {
+            background-color: var(--primary);
+            color: var(--light);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-dark);
+            color: var(--light);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .footer-contact {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+
+        .footer p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: var(--light);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer a:hover {
+            opacity: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Floating Action Buttons */
+        .fab-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .fab {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-dark);
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .fab:hover {
+            transform: translateY(-5px);
+            background-color: var(--primary);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .fab-label {
+            position: absolute;
+            right: 70px;
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+        }
+
+        .fab:hover .fab-label {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .pricing-card.popular {
+                transform: none;
+            }
+            
+            .pricing-card.popular:hover {
+                transform: translateY(-15px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .page-hero {
+                padding: 120px 0 50px;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .page-hero .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .pricing-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .pricing-tab {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .fab-container {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .fab-label {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="tt-icon">TT</div>
+                <div class="logo-text">TypoTech <span class="year-badge">2026</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="services.html" class="current">Services</a></li>
+                <li><a href="contact.html" class="contact-btn">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <h1>Our Premium Services</h1>
+            <p class="tagline">Innovative tech solutions with Zambian excellence and global standards</p>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="current">Services</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Services Showcase -->
+    <section class="services-showcase">
+        <div class="container">
+            <div class="section-title">
+                <h2>Premium Digital Solutions</h2>
+                <p>From concept to launch, we deliver exceptional results with transparent pricing</p>
+            </div>
+            
+            <div class="premium-services">
+                <div class="premium-service">
+                    <div class="service-badge">Most Popular</div>
+                    <div class="premium-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Business Website</h3>
+                    <div class="price-tag">ZMW 12,500 <span>/ one-time</span></div>
+                    <p>Complete professional website with CMS, SEO optimization, and responsive design for all devices.</p>
+                    
+                    <ul class="service-features">
+                        <li>10-15 Custom Designed Pages</li>
+                        <li>Mobile-First Responsive Design</li>
+                        <li>SEO Optimization & Analytics</li>
+                        <li>Content Management System</li>
+                        <li>Contact Forms & Integration</li>
+                        <li>1 Year Free Hosting</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="service-btn">
+                        <i class="fas fa-calendar-check"></i> Book This Package
+                    </a>
+                </div>
+                
+                <div class="premium-service">
+                    <div class="service-badge">Best Value</div>
+                    <div class="premium-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-Commerce Store</h3>
+                    <div class="price-tag">ZMW 28,000 <span>/ one-time</span></div>
+                    <p>Full-featured online store with payment integration, inventory management, and customer accounts.</p>
+                    
+                    <ul class="service-features">
+                        <li>Unlimited Products & Categories</li>
+                        <li>Secure Payment Gateway (Zambia)</li>
+                        <li>Inventory Management System</li>
+                        <li>Customer Accounts & Dashboard</li>
+                        <li>Order Tracking & Notifications</li>
+                        <li>Marketing & Promotions Tools</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="service-btn">
+                        <i class="fas fa-shopping-bag"></i> Start Selling Online
+                    </a>
+                </div>
+                
+                <div class="premium-service">
+                    <div class="service-badge">Enterprise</div>
+                    <div class="premium-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Application</h3>
+                    <div class="price-tag">ZMW 45,000+ <span>/ custom</span></div>
+                    <p>Native iOS and Android applications with custom features, backend integration, and ongoing support.</p>
+                    
+                    <ul class="service-features">
+                        <li>Cross-Platform Development</li>
+                        <li>Custom UI/UX Design</li>
+                        <li>API Integration & Backend</li>
+                        <li>App Store Deployment</li>
+                        <li>Push Notifications</li>
+                        <li>6 Months Free Support</li>
+                    </ul>
+                    
+                    <a href="contact.html" class="service-btn">
+                        <i class="fas fa-rocket"></i> Launch Your App
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Tabs -->
+    <section class="pricing-tabs-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: var(--dark);">Flexible Pricing Plans</h2>
+                <p style="color: var(--gray-dark);">Choose the perfect package for your business needs</p>
+            </div>
+            
+            <div class="pricing-tabs">
+                <button class="pricing-tab active" data-tab="web">Web Development</button>
+                <button class="pricing-tab" data-tab="branding">Branding & Design</button>
+                <button class="pricing-tab" data-tab="software">Custom Software</button>
+            </div>
+            
+            <div class="pricing-grid" id="web-pricing">
+                <div class="pricing-card">
+                    <h3>Starter Website</h3>
+                    <div class="price">ZMW 5,500 <span>/ one-time</span></div>
+                    <ul class="pricing-features">
+                        <li>5 Custom Designed Pages</li>
+                        <li>Responsive Mobile Design</li>
+                        <li>Basic SEO Setup</li>
+                        <li>Contact Form</li>
+                        <li>Social Media Integration</li>
+                        <li class="disabled">E-commerce Features</li>
+                        <li class="disabled">Content Management</li>
+                        <li class="disabled">Advanced Analytics</li>
+                    </ul>
+                    <a href="contact.html" class="pricing-btn">Get Started</a>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <h3>Business Website</h3>
+                    <div class="price">ZMW 12,500 <span>/ one-time</span></div>
+                    <ul class="pricing-features">
+                        <li>10-15 Custom Pages</li>
+                        <li>Advanced Responsive Design</li>
+                        <li>Full SEO Optimization</li>
+                        <li>Content Management System</li>
+                        <li>Multiple Contact Forms</li>
+                        <li>Social Media Integration</li>
+                        <li>Basic Analytics</li>
+                        <li class="disabled">E-commerce Features</li>
+                    </ul>
+                    <a href="contact.html" class="pricing-btn">Get Started</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>E-commerce Pro</h3>
+                    <div class="price">ZMW 28,000+ <span>/ one-time</span></div>
+                    <ul class="pricing-features">
+                        <li>Unlimited Products</li>
+                        <li>Secure Payment Gateway</li>
+                        <li>Inventory Management</li>
+                        <li>Customer Accounts</li>
+                        <li>Advanced CMS</li>
+                        <li>Marketing Tools</li>
+                        <li>Full Analytics Suite</li>
+                        <li>1 Year Free Support</li>
+                    </ul>
+                    <a href="contact.html" class="pricing-btn">Get Started</a>
+                </div>
+            </div>
+            
+            <div class="pricing-grid" id="branding-pricing" style="display: none;">
+                <div class="pricing-card">
+                    <h3>Basic Branding</h3>
+                    <div class="price">ZMW 3,800 <span>/ one-time</span></div>
+                    <ul class="pricing-features">
+                        <li>Logo Design (3 Concepts)</li>
+                        <li>Color Palette Selection</li>
+                        <li>Typography Guide</li>
+                        <li>Basic Brand Guidelines</li>
+                        <li class="disabled">Business Cards</li>
+                        <li class="disabled">Social Media Kit</li>
+                        <li class="disabled">Stationery Design</li>
+                    </ul>
+                    <a href="contact.html" class="pricing-btn">Get Started</a>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">BEST VALUE</div>
+                    <h3>Complete Branding</h3>
+                    <div class="price">ZMW 8,500 <span>/ one-time</span></div>
+                    <ul class="pricing-features">
+                        <li>Logo Design (5 Concepts)</li>
+                        <li>Complete Brand Identity</li>
+                        <li>Detailed Brand Guidelines</li>
+                        <li>Business Card Design</li>
+                        <li>Letterhead & Envelope</li>
+                        <li>Social Media Kit (5 templates)</li>
+                        <li class="disabled">Marketing Materials</li>
+                    </ul>
+                    <a href="contact.html" class="pricing-btn">Get Started</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Enterprise Branding</h3>
+                    <div class="price">ZMW 16,000+ <span>/ one-time</span></div>
+                    <ul class="pricing-features">
+                        <li>Complete Brand System</li>
+                        <li>Extensive Brand Guidelines</li>
+                        <li>Full Stationery Suite</li>
+                        <li>Social Media Kit (15+ templates)</li>
+                        <li>Marketing Materials</li>
+                        <li>Brand Application Examples</li>
+                        <li>Presentation Templates</li>
+                    </ul>
+                    <a href="contact.html" class="pricing-btn">Get Started</a>
+                </div>
+            </div>
+            
+            <div class="pricing-grid" id="software-pricing" style="display: none;">
+                <div class="pricing-card">
+                    <h3>Basic App</h3>
+                    <div class="price">ZMW 18,000+ <span>/ custom</span></div>
+                    <ul class="pricing-features">
+                        <li>Single Platform (iOS or Android)</li>
+                        <li>5-8 Screens</li>
+                        <li>Basic Functionality</li>
+                        <li>Simple Backend</li>
+                        <li>App Store Deployment</li>
+                        <li class="disabled">Cross-Platform</li>
+                        <li class="disabled">Advanced Features</li>
+                    </ul>
+                    <a href="contact.html" class="pricing-btn">Get Started</a>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">RECOMMENDED</div>
+                    <h3>Business App</h3>
+                    <div class="price">ZMW 45,000+ <span>/ custom</span></div>
+                    <ul class="pricing-features">
+                        <li>Cross-Platform Development</li>
+                        <li>10-15 Screens</li>
+                        <li>Custom UI/UX Design</li>
+                        <li>API Integration</li>
+                        <li>User Authentication</li>
+                        <li>Admin Dashboard</li>
+                        <li>6 Months Support</li>
+                    </ul>
+                    <a href="contact.html" class="pricing-btn">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise Solution</h3>
+                    <div class="price">ZMW 85,000+ <span>/ custom</span></div>
+                    <ul class="pricing-features">
+                        <li>Multi-Platform Development</li>
+                        <li>Custom Backend System</li>
+                        <li>Advanced Security Features</li>
+                        <li>Real-time Functionality</li>
+                        <li>Analytics Dashboard</li>
+                        <li>Ongoing Maintenance</li>
+                        <li>Priority Support</li>
+                    </ul>
+                    <a href="contact.html" class="pricing-btn">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Development Process</h2>
+                <p>Transparent, efficient, and client-focused workflow for every project</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery</h3>
+                    <p>We begin with in-depth consultations to understand your business goals, target audience, and project requirements.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Strategy & Planning</h3>
+                    <p>Our team creates a detailed project plan with timelines, milestones, and deliverables for your approval.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Design & Prototyping</h3>
+                    <p>We craft visually stunning and user-friendly designs that align with your brand and business objectives.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Development</h3>
+                    <p>Our developers bring designs to life using the latest technologies and industry best practices.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Testing & Quality Assurance</h3>
+                    <p>We rigorously test all functionality across devices and browsers to ensure flawless performance.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h3>Launch & Support</h3>
+                    <p>We deploy your solution and provide ongoing support to ensure continued success and growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let's discuss how we can help your business grow with innovative digital solutions.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-button primary">
+                    <i class="fas fa-paper-plane"></i> Get a Free Quote
+                </a>
+                <a href="tel:+260960355692" class="cta-button secondary">
+                    <i class="fas fa-phone"></i> Call Us Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html" class="logo">
+                        <div class="tt-icon">TT</div>
+                        <div class="logo-text">TypoTech</div>
+                    </a>
+                    <p>Fixing the Flaws, Building the Future. Zambian innovation with global standards since 2023.</p>
+                    <p><em>"The difference is in the details."</em></p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <p><i class="fas fa-envelope"></i> typotechzm@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +260 960 355 692</p>
+                    <p><i class="fas fa-map-marker-alt"></i> New Kasama, Lusaka, Zambia</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1B1kqnQpDa/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/typotechzm"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/260960355692"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TypoTech ZM. All rights reserved. Built with <i class="fas fa-heart" style="color: var(--light);"></i> in Zambia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <a href="tel:+260960355692" class="fab">
+            <i class="fas fa-phone"></i>
+            <span class="fab-label">Call Us</span>
+        </a>
+        <a href="https://wa.me/260960355692" class="fab">
+            <i class="fab fa-whatsapp"></i>
+            <span class="fab-label">WhatsApp</span>
+        </a>
+        <a href="contact.html" class="fab">
+            <i class="fas fa-envelope"></i>
+            <span class="fab-label">Email Us</span>
+        </a>
+    </div>
+
+    <script>
+        // Pricing tabs functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const pricingTabs = document.querySelectorAll('.pricing-tab');
+            
+            pricingTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    pricingTabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all pricing grids
+                    document.getElementById('web-pricing').style.display = 'none';
+                    document.getElementById('branding-pricing').style.display = 'none';
+                    document.getElementById('software-pricing').style.display = 'none';
+                    
+                    // Show selected pricing grid
+                    const tabName = this.getAttribute('data-tab');
+                    document.getElementById(tabName + '-pricing').style.display = 'grid';
+                });
+            });
+            
+            // Hamburger menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', function() {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '70px';
+                navLinks.style.right = '20px';
+                navLinks.style.background = 'white';
+                navLinks.style.padding = '20px';
+                navLinks.style.borderRadius = '10px';
+                navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                navLinks.style.gap = '15px';
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+<script src="js/main.js" defer></script>
+</html>

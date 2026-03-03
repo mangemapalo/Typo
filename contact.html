@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | TypoTech - Get In Touch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #008000;          /* TypoTech Green */
+            --primary-dark: #006400;     /* Darker Green */
+            --primary-light: #a8d5a8;    /* Light Green */
+            --secondary: #f0f0f0;        /* Off-white */
+            --dark: #000000;             /* Black */
+            --light: #ffffff;            /* White */
+            --accent: #10b981;           /* Emerald */
+            --gray-light: #e8f5e8;       /* Very light green */
+            --gray: #4a6b4a;             /* Greenish gray */
+            --gray-dark: #1a2c1a;        /* Dark greenish gray */
+        }
+
+        body {
+            font-family: 'Oswald', sans-serif;
+            color: var(--dark);
+            background-color: var(--primary-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation - Match Homepage */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .tt-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            font-family: Arial, sans-serif;
+        }
+
+        .year-badge {
+            background-color: var(--primary);
+            color: var(--light);
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 5px;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .contact-btn {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 140px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-dark), var(--primary));
+            opacity: 0.1;
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: var(--light);
+            font-family: Arial, sans-serif;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-hero .tagline {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .breadcrumb li {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .breadcrumb li:after {
+            content: '›';
+            position: absolute;
+            right: -15px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.2rem;
+        }
+
+        .breadcrumb li:last-child:after {
+            display: none;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 400;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--light);
+        }
+
+        .breadcrumb .current {
+            color: var(--light);
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 0;
+            background-color: var(--primary-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            color: var(--dark);
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+
+        .section-title p {
+            color: var(--gray-dark);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 25px auto 0;
+            opacity: 0.9;
+        }
+
+        /* Contact Container */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Contact Info Cards */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .info-card {
+            background-color: var(--light);
+            border-radius: 15px;
+            padding: 40px 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+            transform-origin: left;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-card:hover:before {
+            transform: scaleX(1);
+        }
+
+        .info-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 25px;
+            transition: all 0.4s;
+        }
+
+        .info-card:hover .info-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .info-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .info-card p {
+            color: var(--gray);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .info-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .info-card a:hover {
+            color: var(--primary-dark);
+        }
+
+        .social-contact {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-contact a {
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-contact a:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            background-color: var(--light);
+            border-radius: 15px;
+            padding: 50px 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h3 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background-color: #f9f9f9;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: var(--light);
+            box-shadow: 0 0 0 3px rgba(0, 128, 0, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23008000' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 16px;
+            padding-right: 50px;
+        }
+                .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .submit-btn {
+            background-color: var(--primary);
+            color: var(--light);
+            border: none;
+            padding: 18px 40px;
+            border-radius: 8px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .submit-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+            z-index: -1;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 100, 0, 0.3);
+        }
+
+        .submit-btn:hover:before {
+            left: 100%;
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 25px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .form-note a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 80px 0;
+            background-color: var(--primary);
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            height: 450px;
+            position: relative;
+        }
+
+        .map-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 100, 0, 0.9), transparent);
+            color: var(--light);
+            padding: 30px;
+            z-index: 10;
+        }
+
+        .map-overlay h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .map-overlay p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+            background-color: var(--primary-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-question h3 {
+            font-size: 1.3rem;
+            color: var(--dark);
+        }
+
+        .faq-toggle {
+            width: 35px;
+            height: 35px;
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-toggle {
+            background-color: var(--primary-dark);
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .faq-answer p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-dark);
+            color: var(--light);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .footer-contact {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+
+        .footer p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: var(--light);
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .footer a:hover {
+            opacity: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Floating Action Buttons */
+        .fab-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .fab {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-dark);
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .fab:hover {
+            transform: translateY(-5px);
+            background-color: var(--primary);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .fab-label {
+            position: absolute;
+            right: 70px;
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+        }
+
+        .fab:hover .fab-label {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .page-hero {
+                padding: 120px 0 50px;
+            }
+            
+            .page-hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .page-hero .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .fab-container {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .fab-label {
+                display: none;
+            }
+            
+            .contact-container {
+                gap: 30px;
+            }
+            
+            .info-card, .contact-form-container {
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="tt-icon">TT</div>
+                <div class="logo-text">TypoTech <span class="year-badge">2026</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html" class="contact-btn">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <h1>Get In Touch</h1>
+            <p class="tagline">Let's discuss how we can bring your digital vision to life</p>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="current">Contact</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact TypoTech</h2>
+                <p>Reach out to us for consultations, quotes, or any inquiries about our services</p>
+            </div>
+            
+            <div class="contact-container">
+                <!-- Contact Info Cards -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Our Location</h3>
+                        <p><strong>TypoTech ZM Headquarters</strong></p>
+                        <p>New Kasama</p>
+                        <p>Lusaka, Zambia</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</p>
+                        <p><i class="fas fa-clock"></i> Sat: 9:00 AM - 1:00 PM</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Phone & WhatsApp</h3>
+                        <p><strong>Primary Contact:</strong></p>
+                        <a href="tel:+260960355692">+260 960 355 692</a>
+                        <p><strong>Secondary Contact:</strong></p>
+                        <a href="tel:+260772220187">+260 772 220 187</a>
+                        <p><strong>WhatsApp Business:</strong></p>
+                        <a href="https://wa.me/260960355692">+260 960 355 692</a>
+                        <div class="social-contact">
+                            <a href="tel:+260960355692"><i class="fas fa-phone"></i></a>
+                            <a href="https://wa.me/260960355692"><i class="fab fa-whatsapp"></i></a>
+                            <a href="sms:+260960355692"><i class="fas fa-sms"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email & Social</h3>
+                        <p><strong>General Inquiries:</strong></p>
+                        <a href="mailto:typotechzm@gmail.com">typotechzm@gmail.com</a>
+                        <p><strong>Business Proposals:</strong></p>
+                        <a href="mailto:business@typotech.co.zm">business@typotech.co.zm</a>
+                        <p><strong>Support:</strong></p>
+                        <a href="mailto:support@typotech.co.zm">support@typotech.co.zm</a>
+                        <div class="social-contact">
+                            <a href="mailto:typotechzm@gmail.com"><i class="fas fa-envelope"></i></a>
+                            <a href="https://www.facebook.com/share/1B1kqnQpDa/"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/typotechzm"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form - NOW USING MAILTO -->
+                <div class="contact-form-container">
+                    <div class="form-header">
+                        <h3>Send Us a Message</h3>
+                        <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                    </div>
+                    
+                    <!-- CHANGED: Form uses mailto to open email client -->
+                    <form class="contact-form" method="post" action="mailto:typotechzm@gmail.com" enctype="text/plain">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+260 XXX XXX XXX">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service">
+                                <option value="" selected>Select a service</option>
+                                <option value="Website Development">Website Development</option>
+                                <option value="E-commerce Store">E-commerce Store</option>
+                                <option value="Mobile Application">Mobile Application</option>
+                                <option value="Branding & Design">Branding & Design</option>
+                                <option value="Custom Software">Custom Software</option>
+                                <option value="Consultation">Consultation</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget">Project Budget (ZMW)</label>
+                            <select id="budget" name="budget">
+                                <option value="" selected>Select budget range</option>
+                                <option value="ZMW 0 - 5,000">ZMW 0 - 5,000</option>
+                                <option value="ZMW 5,000 - 15,000">ZMW 5,000 - 15,000</option>
+                                <option value="ZMW 15,000 - 30,000">ZMW 15,000 - 30,000</option>
+                                <option value="ZMW 30,000 - 50,000">ZMW 30,000 - 50,000</option>
+                                <option value="ZMW 50,000+">ZMW 50,000+</option>
+                                <option value="Not Sure / Need Quote">Not Sure / Need Quote</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="body" required placeholder="Tell us about your project, requirements, timeline, and any specific details..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Email
+                        </button>
+                        
+                        <p class="form-note">By submitting this form, you agree to our <a href="#">Privacy Policy</a>. We'll never share your information with third parties.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: var(--light);">Find Us in Lusaka</h2>
+                <p style="color: var(--secondary);">Visit our headquarters in New Kasama, Lusaka</p>
+            </div>
+            
+            <div class="map-container">
+                <!-- Google Maps Embed -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.2840629489153!2d28.28767647708761!3d-15.415594166945452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1940f41c3d5d53b7%3A0x66ce6e3de87a4d4e!2sNew%20Kasama%2C%20Lusaka%2C%20Zambia!5e0!3m2!1sen!2sus!4v1678901234567!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                
+                <div class="map-overlay">
+                    <h3>TypoTech Headquarters</h3>
+                    <p>New Kasama, Lusaka, Zambia | Open Monday to Friday, 8:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common questions about working with us</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How quickly will you respond to my inquiry?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We typically respond to all inquiries within 2-4 business hours during working days (Monday-Friday, 8 AM - 6 PM). For weekend inquiries, we'll respond on the next business day. Urgent inquiries can be addressed via phone call at +260 960 355 692.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you offer free consultations?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer a free 30-minute initial consultation for all new clients. During this consultation, we'll discuss your project requirements, goals, timeline, and budget. This helps us understand your needs and provide accurate recommendations and quotes.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What payment methods do you accept?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept various payment methods including bank transfers (Zambian Kwacha), mobile money (Airtel Money, MTN Money, Zamtel Kwacha), and cash payments. For larger projects, we typically require a 50% deposit to begin work, with the balance due upon project completion.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you work with clients outside Zambia?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! While we're based in Zambia, we regularly work with clients across Africa and internationally. We're comfortable working across time zones and can conduct all meetings and communications remotely. We accept international payments through bank transfers.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is your typical project timeline?</h3>
+                        <div class="faq-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Project timelines vary based on complexity. A basic website typically takes 2-4 weeks, e-commerce stores 4-8 weeks, and custom applications 8-16 weeks. We'll provide a detailed timeline after our initial consultation and project scoping.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html" class="logo">
+                        <div class="tt-icon">TT</div>
+                        <div class="logo-text">TypoTech</div>
+                    </a>
+                    <p>Fixing the Flaws, Building the Future. Zambian innovation with global standards since 2023.</p>
+                    <p><em>"The difference is in the details."</em></p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <p><i class="fas fa-envelope"></i> typotechzm@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +260 960 355 692</p>
+                    <p><i class="fas fa-map-marker-alt"></i> New Kasama, Lusaka, Zambia</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1B1kqnQpDa/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/typotechzm"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/260960355692"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TypoTech ZM. All rights reserved. Built with <i class="fas fa-heart" style="color: var(--light);"></i> in Zambia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <a href="tel:+260960355692" class="fab">
+            <i class="fas fa-phone"></i>
+            <span class="fab-label">Call Us</span>
+        </a>
+        <a href="https://wa.me/260960355692" class="fab">
+            <i class="fab fa-whatsapp"></i>
+            <span class="fab-label">WhatsApp</span>
+        </a>
+        <a href="contact.html" class="fab">
+            <i class="fas fa-envelope"></i>
+            <span class="fab-label">Email Us</span>
+        </a>
+    </div>
+    <script>
+        // FAQ toggle functionality - SIMPLE VERSION
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', function() {
+                    // Close all other items
+                    faqItems.forEach(i => {
+                        if (i !== item) {
+                            i.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Simple hamburger menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function() {
+                    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '70px';
+                    navLinks.style.right = '20px';
+                    navLinks.style.background = 'white';
+                    navLinks.style.padding = '20px';
+                    navLinks.style.borderRadius = '10px';
+                    navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                    navLinks.style.gap = '15px';
+                });
+            }
+            
+            // Simple smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+        // Enhanced form security and validation
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.contact-form');
+    const messageField = document.getElementById('message');
+    const charCount = document.getElementById('charCount');
+    const timestampField = document.getElementById('timestamp');
+    
+    if (form) {
+        // Set timestamp when page loads
+        if (timestampField) {
+            timestampField.value = Date.now();
+        }
+        
+        // Character counter for message
+        if (messageField && charCount) {
+            messageField.addEventListener('input', function() {
+                charCount.textContent = this.value.length;
+                
+                if (this.value.length < 20) {
+                    this.setCustomValidity('Please enter at least 20 characters');
+                } else if (this.value.length > 2000) {
+                    this.setCustomValidity('Maximum 2000 characters allowed');
+                } else {
+                    this.setCustomValidity('');
+                }
+            });
+        }
+        
+        // Simple honeypot validation
+        form.addEventListener('submit', function(e) {
+            const honeypot = document.getElementById('website');
+            const humanCheck = document.querySelector('input[name="humanCheck"]:checked');
+            
+            // Check honeypot - if filled, likely a bot
+            if (honeypot && honeypot.value !== '') {
+                e.preventDefault();
+                alert('Please fill the form correctly.');
+                return false;
+            }
+            
+            // Check human verification
+            if (!humanCheck || humanCheck.value !== 'yes') {
+                e.preventDefault();
+                alert('Please confirm you are human by selecting "Yes".');
+                return false;
+            }
+            
+            // Check form submission speed (too fast = likely bot)
+            if (timestampField) {
+                const submitTime = Date.now();
+                const loadTime = parseInt(timestampField.value);
+                const timeDiff = submitTime - loadTime;
+                
+                // If form submitted in less than 3 seconds, likely a bot
+                if (timeDiff < 3000) {
+                    e.preventDefault();
+                    alert('Please take your time to fill the form correctly.');
+                    return false;
+                }
+            }
+            
+            // Validate all fields before opening email
+            if (!form.checkValidity()) {
+                e.preventDefault();
+                // Show which fields are invalid
+                const invalidFields = form.querySelectorAll(':invalid');
+                if (invalidFields.length > 0) {
+                    invalidFields[0].focus();
+                    alert('Please fill all required fields correctly.');
+                }
+                return false;
+            }
+            
+            // If all valid, show confirmation
+            const confirmation = confirm(
+                'This will open your email application with your message pre-filled.\n\n' +
+                'Click OK to continue, or Cancel to review your message.'
+            );
+            
+            if (!confirmation) {
+                e.preventDefault();
+                return false;
+            }
+            
+            // Add loading state to button
+            const submitBtn = form.querySelector('.submit-btn');
+            if (submitBtn) {
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Opening Email...';
+                submitBtn.disabled = true;
+                
+                // Reset button after a moment
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 3000);
+            }
+            
+            return true;
+        });
+        
+        // Add input validation styles
+        const inputs = form.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.checkValidity()) {
+                    this.style.borderColor = '#10b981';
+                } else {
+                    this.style.borderColor = '#ff6b6b';
+                }
+            });
+            
+            input.addEventListener('input', function() {
+                if (this.checkValidity()) {
+                    this.style.borderColor = '#10b981';
+                }
+            });
+        });
+    }
+});
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>
